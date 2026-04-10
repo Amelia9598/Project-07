@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Management App</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 p-6">
+
+  <h1 class="text-3xl font-bold mb-6">Management System</h1>
+
+  <!-- Tabs -->
+  <div class="flex gap-4 mb-6">
+    <button onclick="showTab('users')" class="bg-blue-500 text-white px-4 py-2 rounded">Users</button>
+    <button onclick="showTab('products')" class="bg-green-500 text-white px-4 py-2 rounded">Products</button>
+  </div>
+
+  <!-- LOADER -->
+  <div id="loader" class="hidden text-center">Loading...</div>
+
+  <!-- USERS SECTION -->
+  <div id="usersSection">
+
+    <h2 class="text-xl font-bold mb-2">User Management</h2>
+
+    <form id="userForm" class="bg-white p-4 mb-4 rounded shadow">
+      <input type="hidden" id="userId">
+      <input id="firstName" placeholder="First Name" class="border p-2 m-1">
+      <input id="lastName" placeholder="Last Name" class="border p-2 m-1">
+      <input id="email" placeholder="Email" class="border p-2 m-1">
+      <input id="phone" placeholder="Phone" class="border p-2 m-1">
+      <button class="bg-blue-500 text-white px-3 py-1 rounded">Save</button>
+    </form>
+
+    <input id="search" placeholder="Search users..." class="border p-2 mb-3 w-full">
+
+    <table class="w-full bg-white">
+      <thead class="bg-gray-200">
+        <tr>
+          <th>ID</th><th>First</th><th>Last</th><th>Email</th><th>Phone</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="userTable"></tbody>
+    </table>
+
+  </div>
+
+  <!-- PRODUCTS SECTION -->
+  <div id="productsSection" class="hidden">
+
+    <h2 class="text-xl font-bold mb-2">Product Inventory</h2>
+
+    <form id="productForm" class="bg-white p-4 mb-4">
+      <input type="hidden" id="productId">
+      <input id="title" placeholder="Title" class="border p-2 m-1">
+      <input id="price" type="number" placeholder="Price" class="border p-2 m-1">
+      <input id="image" placeholder="Image URL" class="border p-2 m-1">
+      <input id="category" placeholder="Category" class="border p-2 m-1">
+      <textarea id="description" placeholder="Description" class="border p-2 m-1"></textarea>
+      <button class="bg-green-500 text-white px-3 py-1 rounded">Save</button>
+    </form>
+
+    <select id="filter" class="border p-2 mb-4">
+      <option value="">All</option>
+      <option value="electronics">Electronics</option>
+      <option value="jewelery">Jewelery</option>
+      <option value="men's clothing">Men</option>
+      <option value="women's clothing">Women</option>
+    </select>
+
+    <div id="products" class="grid grid-cols-4 gap-4"></div>
+
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
